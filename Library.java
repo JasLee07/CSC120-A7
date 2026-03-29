@@ -16,9 +16,9 @@ public class Library extends Building implements LibraryRequirements{
 
     public void addTitle(String title){
       if(!collection.containsKey(title)){
-        collection.put(title, isAvailable);
+        collection.put(title, true);
       }
-      System.out.println("Titles have been added!");
+      System.out.println("Titles have been added: " + title);
     }
 
     public String removeTitle(String title){
@@ -29,7 +29,7 @@ public class Library extends Building implements LibraryRequirements{
 
     public void checkOut(String title){
       if(collection.containsKey(title)){
-        collection.remove(title, false);
+        collection.replace(title, false);
       }
       System.out.println("Here's your book, enjoy!");
     }
@@ -40,11 +40,14 @@ public class Library extends Building implements LibraryRequirements{
     }
 
     public boolean containsTitle(String title){
-      return containsTitle;
+      return collection.containsKey(title);
     }
 
     public boolean isAvailable(String title){
-      return isAvailable;
+      if(collection.containsKey(title)){
+        return collection.get(title);
+      }
+      return false;
     }
 
     public void printCollection(){
@@ -52,12 +55,13 @@ public class Library extends Building implements LibraryRequirements{
     }
 
     public static void main(String[] args) {
-      Library neilsonLibrary = new Library("Neilson Library", "7 Neilson Drive", 5, null);
-      System.out.print(neilsonLibrary);
+      Hashtable<String, Boolean> myCollection = new Hashtable<>();
+      Library neilsonLibrary = new Library("Neilson Library", "7 Neilson Drive", 5, myCollection);
+      System.out.println(neilsonLibrary);
       neilsonLibrary.addTitle("The Hobbit");
       neilsonLibrary.addTitle("Harry Potter and the Goblet of Fire");
       neilsonLibrary.addTitle("The Seven Husbands of Evelyn Hugo");
-      neilsonLibrary.printCollection();
+      // neilsonLibrary.printCollection();
       
       String title = "The Hobbit";
       

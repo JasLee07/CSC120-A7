@@ -15,7 +15,6 @@ public class House extends Building implements HouseRequirements {
   
   public House(String name, String address, int nFloors, int nResidents, boolean hasDiningRoom) {
   super(name, address, nFloors);
-  System.out.println("You have built a house: 🏠");
   this.residents = new  ArrayList<Student>();
   this.hasDiningRoom = hasDiningRoom;;
   
@@ -46,8 +45,10 @@ public class House extends Building implements HouseRequirements {
   }
   public static void main(String[] args) {
     House jordanHouse = new House("Jordan House", "1 Paradise Rd", 4, 95, false);
-
+    House northropHouse = new House("Northrop House", "49 Elm Street", 4, 70, true);
+    
     System.out.println(jordanHouse);
+    System.out.println(northropHouse);
   }
 }
 

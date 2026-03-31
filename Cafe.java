@@ -22,6 +22,7 @@ public class Cafe extends Building implements CafeRequirements {
         this.nCreams -= nCreams;
         this.nCups -= 1;
         System.out.println("Here is your latte!");
+        restock(nCoffeeOunces, nSugarPackets, nCreams, nCups);
     }
 
     private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups){
@@ -37,7 +38,8 @@ public class Cafe extends Building implements CafeRequirements {
         300, 300, 200, 70);
         System.out.println("Welcome! What can I get for you?");
         DashCafe.sellCoffee(16, 7, 4);
+        DashCafe.sellCoffee(20, 8, 5);
+        DashCafe.sellCoffee(12, 5, 3);
         System.out.println("Enjoy your day!");
-        DashCafe.restock(300, 300, 200, 70);
     }   
 }

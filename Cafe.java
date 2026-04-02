@@ -16,13 +16,17 @@ public class Cafe extends Building implements CafeRequirements {
     }
 
     public void sellCoffee(int size, int nSugarPackets, int nCreams){
+        if(this.nCoffeeOunces < size || this.nSugarPackets < nSugarPackets 
+            || this.nCreams < nCreams || this.nCups < 1 ){
+        restock(500, 300, 150, 70);
+        }
         System.out.println("One latte coming up!");
         this.nCoffeeOunces -= size;
         this.nSugarPackets -= nSugarPackets;
         this.nCreams -= nCreams;
         this.nCups -= 1;
         System.out.println("Here is your latte!");
-        restock(nCoffeeOunces, nSugarPackets, nCreams, nCups);
+        
     }
 
     private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups){
